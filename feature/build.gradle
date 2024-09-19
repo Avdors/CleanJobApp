@@ -1,0 +1,7 @@
+apply plugin: 'kotlin'
+
+dependencies {
+//    def kotlin_version = "3.2.2"
+//    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation(libs.kotlin.stdlib)
+}
