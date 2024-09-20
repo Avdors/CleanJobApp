@@ -16,7 +16,7 @@ import java.net.UnknownHostException
 
 class VacancyRepositoryImpl(private val client: HttpClient) :
     VacancyRepository {
-    override suspend fun getVacancies(): ResponseOfferAndVacancies {
+    override suspend fun getData(): ResponseOfferAndVacancies {
         val json = client.get {
             val url = UrlProvider.getUrl("vacancies") ?: throw Exception("URL not found")
             url(url)

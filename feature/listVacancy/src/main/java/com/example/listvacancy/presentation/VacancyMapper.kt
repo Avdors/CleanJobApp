@@ -1,6 +1,10 @@
 package com.example.listvacancy.presentation
 
 import com.example.core.domain.model.VacancyDomainModel
+import com.example.listvacancy.presentation.model.AddressMainFragmentModel
+import com.example.listvacancy.presentation.model.ExperienceMainFragmentModel
+import com.example.listvacancy.presentation.model.SalaryMainFragmentModel
+import com.example.listvacancy.presentation.model.VacancyModel
 
 object VacancyMapper {
     // Функция для маппинга одного объекта VacancyDomainModel в VacancyModel

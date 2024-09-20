@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         minSdk = 26
-
+        viewBinding.enable = true
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
     }
@@ -65,4 +65,6 @@ dependencies {
     implementation(libs.ktor.client.mock)
     implementation(libs.logback.classic)
     implementation(libs.ktor.client.content.negotiation)
+
+
 }
