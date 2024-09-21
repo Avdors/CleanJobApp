@@ -29,14 +29,14 @@ class LocalDataSource(
         offerDao.insertOffers(offers)
     }
 
-    suspend fun upsertFavoriteDB(item: VacancyModelDataBase) {
+    suspend fun upsertFavoriteDB(item: FavoriteVacModelDataBase) {
         // здесь надо правильно преобразовать item в FavoriteVacModelDataBase
-        // favoritesDao.upsertItem(item)
+         favoritesDao.upsertItem(item)
     }
 
-    suspend fun deleteFavoriteDB(item: VacancyModelDataBase) {
+    suspend fun deleteFavoriteDB(item: FavoriteVacModelDataBase) {
         // здесь надо правильно преобразовать item в FavoriteVacModelDataBase
-        //favoritesDao.delete(item)
+        favoritesDao.delete(item)
     }
 
 }

@@ -2,6 +2,7 @@ package com.example.listvacancy.data.repository
 
 import com.example.listvacancy.data.LocalDataSource
 import com.example.listvacancy.data.RemoteDataSource
+import com.example.listvacancy.domain.mapper.OfferDataMaper
 import com.example.listvacancy.domain.mapper.VacancyDataMapper
 import com.example.listvacancy.domain.model.ListOfferDomainModel
 import com.example.listvacancy.domain.model.ListVacancyDomainModel
@@ -10,39 +11,66 @@ import com.example.listvacancy.domain.repository.ListVacancyRepository
 class ListVacancyRepositoryImpl(
     private val remoteDataSource: RemoteDataSource,
     private val localDataSource: LocalDataSource,
-    private val vacancyDataMapper: VacancyDataMapper
+    private val vacancyDataMapper: VacancyDataMapper,
+    private val offerDataMapper: OfferDataMaper,
 ) : ListVacancyRepository {
     override suspend fun getVacancies(): List<ListVacancyDomainModel> {
-        val vacanciesFromRemote = remoteDataSource.getVacanciesFromApi()
-        val domainVacancies = vacanciesFromRemote.map { vacancyDataMapper.mapToDomain(it) }
+        return try {
+            // Получаем данные из сети через RemoteDataSource
+            val response = remoteDataSource.getData()
 
-        // Сохранение данных в локальную базу
-        localDataSource.saveVacanciesToDB(vacanciesFromRemote)
+            // Маппим вакансии из сети в доменные модели
+            val vacancies = response.vacancies?.filterNotNull()?.map { vacancy ->
+                vacancyDataMapper.mapToDomain(vacancy)
+            } ?: emptyList()
 
-        return domainVacancies
+            // Сохраняем в кеш
+            localDataSource.saveVacanciesToDB(vacancies.map { vacancyDataMapper.mapToDatabase(it) })
+
+            // Возвращаем вакансии
+            vacancies
+        } catch (e: Exception) {
+            // Если ошибка сети, загружаем данные из кеша
+            val cachedVacancies = localDataSource.getVacanciesFromDB()
+            if (cachedVacancies.isNotEmpty()) {
+                cachedVacancies.map {vacancy ->
+                    vacancyDataMapper.mapToDomainFromDB(vacancy) }
+            } else {
+                throw Exception("Не удалось получить данные")
+            }
+        }
     }
 
     override suspend fun getOffers(): List<ListOfferDomainModel> {
-        TODO("Not yet implemented")
-    }
+        return try {
+            val response = remoteDataSource.getData()
 
-    override suspend fun saveVacancies(vacancies: List<ListVacancyDomainModel>) {
-        TODO("Not yet implemented")
-    }
+            // Маппинг предложений
+            val offers = response.offers?.filterNotNull()?.map { offer ->
+                offerDataMapper.mapOfferToDomain(offer)
+            } ?: emptyList()
 
-    override suspend fun saveOffers(offers: List<ListOfferDomainModel>) {
-        TODO("Not yet implemented")
-    }
+            // Сохраняем в локальную БД
+            localDataSource.saveOffersToDB(offers.map { offerDataMapper.mapOfferToDatabase(it) })
 
-    override suspend fun getFavorites(): List<ListVacancyDomainModel> {
-        TODO("Not yet implemented")
+            offers
+        } catch (e: Exception) {
+            // Загружаем из кеша при ошибке сети
+            val cachedOffers = localDataSource.getOffersFromDB()
+            if (cachedOffers.isNotEmpty()) {
+                cachedOffers.map { offerDataMapper.mapOfferToDomainFromDB(it) }
+            } else {
+                throw Exception("Не удалось получить данные")
+            }
+        }
     }
 
     override suspend fun saveFavorite(vacancy: ListVacancyDomainModel) {
-        TODO("Not yet implemented")
+        //мапим в другой класс
+        localDataSource.upsertFavoriteDB(vacancyDataMapper.mapFavoriteToDatabase(vacancy))
     }
 
     override suspend fun deleteFavorite(vacancy: ListVacancyDomainModel) {
-        TODO("Not yet implemented")
+        localDataSource.deleteFavoriteDB(vacancyDataMapper.mapFavoriteToDatabase(vacancy))
     }
 }

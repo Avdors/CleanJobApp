@@ -132,9 +132,9 @@ class ListVacanciesFragment : Fragment() {
             jobsViewModel.vacancies.collect { vacancies ->
                 val totalvacancy = vacancies.size
 
-                //val vacancy = wordDeclension.getVacancyCountString(totalvacancy.toInt(), requireContext())
+                val vacancy = wordDeclension.getVacancyCountString(totalvacancy.toInt(), requireContext())
                 //avd
-                val vacancy = 123
+               // val vacancy = 123
 
                     quantityVacancyTextView.text = "$vacancy"
                 // Изначально показываю только первые 3 вакансии и кнопку "Еще вакансий"
