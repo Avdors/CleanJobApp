@@ -1,6 +1,8 @@
 package com.example.core.di
 
+import androidx.room.Room
 import com.example.core.api.KtorKlienProvider
+import com.example.core.data.database.AppDatabase
 import com.example.core.data.repository.VacancyRepositoryImpl
 import com.example.core.domain.repository.VacancyRepository
 import com.example.core.domain.usecase.GetMappedVacanciesUseCase
@@ -24,6 +26,17 @@ val KoinModule = module {
             }
         }
     }
+
+    // Database
+    single {
+        Room.databaseBuilder(get(), AppDatabase::class.java, "app_database")
+            .build()
+    }
+    single { get<AppDatabase>().vacancyDao() }
+    single { get<AppDatabase>().offerDao() }
+    single { get<AppDatabase>().favoritesDao() }
+
+
     single { KtorKlienProvider.provideHttpClient() }
     single<VacancyRepository> { VacancyRepositoryImpl(get()) }
     factory { GetMappedVacanciesUseCase(get()) }

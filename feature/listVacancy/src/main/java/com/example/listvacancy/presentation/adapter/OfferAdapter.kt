@@ -44,7 +44,7 @@ class OfferAdapter(
 
             // Установливаю текст кнопки
             if (offer.button != null) {
-                buttonTextView.text = offer.button!!.text
+                buttonTextView.text = offer.button.text
                 buttonTextView.visibility = View.VISIBLE
             } else {
                 buttonTextView.visibility = View.GONE

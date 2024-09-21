@@ -1,6 +1,6 @@
 package com.example.listvacancy.presentation.model
 
-class VacancyModel(
+data class VacancyModel(
     val id: String,
     val lookingNumber: Int,
     val title: String,

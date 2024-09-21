@@ -48,8 +48,8 @@ class ListVacancyAdapter  (private var vacancies: List<VacancyModel>,
             onFavoriteClick: (VacancyModel) -> Unit,
             onApplyClick: (VacancyModel) -> Unit
         ) {
-            if (vacancy.lookingNumber!! > 0) {
-                val human = wordDeclension.getHumanCountString(vacancy.lookingNumber!!.toInt(), itemView.context)
+            if (vacancy.lookingNumber > 0) {
+                val human = wordDeclension.getHumanCountString(vacancy.lookingNumber.toInt(), itemView.context)
                 peopleTextView?.text = "Сейчас просматривают $human"
                 peopleTextView?.visibility = View.VISIBLE
             } else {
