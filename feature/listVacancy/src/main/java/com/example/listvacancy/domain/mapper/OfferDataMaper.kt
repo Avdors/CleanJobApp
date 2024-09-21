@@ -19,10 +19,10 @@ class OfferDataMaper {
 
     fun mapOfferToDomainFromDB(offer: OfferModelDataBase): ListOfferDomainModel {
         return ListOfferDomainModel(
-            id = offer.id ?: "",
-            title = offer.title ?: "",
-            link = offer.link ?: "",
-            button = offer.button?.let { ListButton(it.text.toString()) } // Если button существует, маппим его
+            id = offer.id,
+            title = offer.title,
+            link = offer.link,
+            button = offer.button?.let { ListButton(it.text) } // Если button существует, маппим его
         )
 
     }

@@ -1,5 +1,6 @@
 package com.example.listvacancy.data.repository
 
+import android.util.Log
 import com.example.listvacancy.data.LocalDataSource
 import com.example.listvacancy.data.RemoteDataSource
 import com.example.listvacancy.domain.mapper.OfferDataMaper
@@ -16,6 +17,7 @@ class ListVacancyRepositoryImpl(
 ) : ListVacancyRepository {
     override suspend fun getVacancies(): List<ListVacancyDomainModel> {
         return try {
+            Log.d("ListVacancyRepositoryImpl", "start: ")
             // Получаем данные из сети через RemoteDataSource
             val response = remoteDataSource.getData()
 
@@ -23,7 +25,7 @@ class ListVacancyRepositoryImpl(
             val vacancies = response.vacancies?.filterNotNull()?.map { vacancy ->
                 vacancyDataMapper.mapToDomain(vacancy)
             } ?: emptyList()
-
+            Log.d("ListVacancyRepositoryImpl", "vacancies: ${vacancies.size}")
             // Сохраняем в кеш
             localDataSource.saveVacanciesToDB(vacancies.map { vacancyDataMapper.mapToDatabase(it) })
 

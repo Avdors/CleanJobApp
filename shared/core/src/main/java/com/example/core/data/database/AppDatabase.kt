@@ -13,7 +13,7 @@ import com.example.core.data.database.model.FavoriteVacModelDataBase
 import com.example.core.data.database.model.OfferModelDataBase
 import com.example.core.data.database.model.VacancyModelDataBase
 
-@Database(entities = [VacancyModelDataBase::class, OfferModelDataBase::class, FavoriteVacModelDataBase::class], version = 1)
+@Database(entities = [VacancyModelDataBase::class, OfferModelDataBase::class, FavoriteVacModelDataBase::class], version = 1, exportSchema = false)
 @TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase()  {
 

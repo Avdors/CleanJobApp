@@ -46,9 +46,9 @@ class VacancyDataMapper {
 
     fun mapToDomainFromDB(vacancy: VacancyModelDataBase): ListVacancyDomainModel {
         return ListVacancyDomainModel(
-            id = vacancy.id ?: "",
+            id = vacancy.id,
             lookingNumber = vacancy.lookingNumber ?: 0,
-            title = vacancy.title ?: "",
+            title = vacancy.title,
             address = ListAddressDomainModel(
                 vacancy.address.town,
                 vacancy.address.street,
