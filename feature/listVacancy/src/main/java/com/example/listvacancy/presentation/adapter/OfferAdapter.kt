@@ -8,7 +8,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.listvacancy.R
-import com.example.listvacancy.databinding.OfferItemBinding
 import com.example.listvacancy.presentation.model.OfferModel
 
 // адаптер для загрузки списка offers
@@ -18,7 +17,7 @@ class OfferAdapter(
 ): RecyclerView.Adapter<OfferAdapter.OfferViewHolder>() {
 
 
-    class OfferViewHolder(val binding: OfferItemBinding) : RecyclerView.ViewHolder(binding.root) {
+    class OfferViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val titleTextView: TextView = itemView.findViewById(R.id.offer_title)
         private val buttonTextView: TextView = itemView.findViewById(R.id.offers_action_tv)
         private val iconImageView: ImageView = itemView.findViewById(R.id.recommendation_icon)
@@ -33,22 +32,22 @@ class OfferAdapter(
             }
 
             if (iconResId != null) {
-                binding.recommendationIcon.setImageResource(iconResId)
-                binding.recommendationIcon.visibility = View.VISIBLE
+                iconImageView.setImageResource(iconResId)
+                iconImageView.visibility = View.VISIBLE
             } else {
-                binding.recommendationIcon.visibility = View.GONE
+                iconImageView.visibility = View.GONE
             }
 
 
-            binding.offerTitle.text = offer.title
-            binding.offerTitle.maxLines = if (offer.button != null) 2 else 3
+            titleTextView.text = offer.title
+            titleTextView.maxLines = if (offer.button != null) 2 else 3
 
             // Установливаю текст кнопки
             if (offer.button != null) {
-                binding.offersActionTv.text = offer.button.text
-                binding.offersActionTv.visibility = View.VISIBLE
+                buttonTextView.text = offer.button!!.text
+                buttonTextView.visibility = View.VISIBLE
             } else {
-                binding.offersActionTv.visibility = View.GONE
+                buttonTextView.visibility = View.GONE
             }
 
             // Обработка нажатия на весь элемент
@@ -59,10 +58,9 @@ class OfferAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OfferViewHolder {
-//        val view = LayoutInflater.from(parent.context)
-//            .inflate(R.layout.offer_item, parent, false)
-        val binding: OfferItemBinding = OfferItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return OfferViewHolder(binding)
+        val view = LayoutInflater.from(parent.context)
+            .inflate(R.layout.offer_item, parent, false)
+        return OfferViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: OfferViewHolder, position: Int) {
