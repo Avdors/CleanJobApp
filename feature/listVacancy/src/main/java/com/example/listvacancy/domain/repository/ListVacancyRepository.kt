@@ -1,6 +1,5 @@
 package com.example.listvacancy.domain.repository
 
-import com.example.core.data.model.ResponseOfferAndVacancies
 import com.example.listvacancy.domain.model.ListOfferDomainModel
 import com.example.listvacancy.domain.model.ListVacancyDomainModel
 
