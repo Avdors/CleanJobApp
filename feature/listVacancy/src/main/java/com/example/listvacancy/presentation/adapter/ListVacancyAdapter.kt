@@ -10,6 +10,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.core.utils.WordDeclension
 import com.example.listvacancy.R
+import com.example.listvacancy.databinding.ItemShowMoreButtonBinding
+import com.example.listvacancy.databinding.VacancyItemBinding
 import com.example.listvacancy.presentation.model.VacancyModel
 
 class ListVacancyAdapter  (private var vacancies: List<VacancyModel>,
@@ -30,16 +32,16 @@ class ListVacancyAdapter  (private var vacancies: List<VacancyModel>,
 
 
     // ViewHolder для вакансий
-    class VacancyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private val peopleTextView: TextView? = itemView.findViewById(R.id.item_peopl_count)
-        private val titleTextView: TextView? = itemView.findViewById(R.id.item_vacancy_title)
-        private val salaryTextView: TextView? = itemView.findViewById(R.id.item_vacancy_salary)
-        private val townTextView: TextView? = itemView.findViewById(R.id.item_vacancy_adress)
-        private val companyTextView: TextView? = itemView.findViewById(R.id.item_vacancy_company)
-        private val experienceTextView: TextView? = itemView.findViewById(R.id.item_experience)
-        private val publishedDateTextView: TextView? = itemView.findViewById(R.id.item_date)
-        private val favoriteImageView: ImageView = itemView.findViewById(R.id.search_like_bttn)
-        private val buttonrespons: Button = itemView.findViewById(R.id.respons_button)
+    class VacancyViewHolder(val binding: VacancyItemBinding) : RecyclerView.ViewHolder(binding.root) {
+//        private val peopleTextView: TextView? = itemView.findViewById(R.id.item_peopl_count)
+//        private val titleTextView: TextView? = itemView.findViewById(R.id.item_vacancy_title)
+//        private val salaryTextView: TextView? = itemView.findViewById(R.id.item_vacancy_salary)
+//        private val townTextView: TextView? = itemView.findViewById(R.id.item_vacancy_adress)
+//        private val companyTextView: TextView? = itemView.findViewById(R.id.item_vacancy_company)
+//        private val experienceTextView: TextView? = itemView.findViewById(R.id.item_experience)
+//        private val publishedDateTextView: TextView? = itemView.findViewById(R.id.item_date)
+//        private val favoriteImageView: ImageView = itemView.findViewById(R.id.search_like_bttn)
+//        private val buttonrespons: Button = itemView.findViewById(R.id.respons_button)
         private val wordDeclension = WordDeclension()
 
         fun bind(
@@ -50,39 +52,39 @@ class ListVacancyAdapter  (private var vacancies: List<VacancyModel>,
         ) {
             if (vacancy.lookingNumber > 0) {
                 val human = wordDeclension.getHumanCountString(vacancy.lookingNumber.toInt(), itemView.context)
-                peopleTextView?.text = "Сейчас просматривают $human"
-                peopleTextView?.visibility = View.VISIBLE
+                binding.itemPeoplCount.text = "Сейчас просматривают $human"
+                binding.itemPeoplCount.visibility = View.VISIBLE
             } else {
-                peopleTextView?.visibility = View.GONE
+                binding.itemPeoplCount.visibility = View.GONE
             }
 
-            titleTextView?.text = vacancy.title
-            salaryTextView?.text = vacancy.salary.full
-            townTextView?.text = vacancy.address.town
-            companyTextView?.text = vacancy.company
-            experienceTextView?.text = vacancy.experience.previewText
-            publishedDateTextView?.text = "Опубликовано ${vacancy.publishedDate}"
+            binding.itemVacancyTitle.text = vacancy.title
+            binding.itemVacancySalary.text = vacancy.salary.full
+            binding.itemVacancyAdress.text = vacancy.address.town
+            binding.itemVacancyCompany.text = vacancy.company
+            binding.itemExperience.text = vacancy.experience.previewText
+            binding.itemDate.text = "Опубликовано ${vacancy.publishedDate}"
 
 
-            favoriteImageView.setImageResource(
+            binding.searchLikeBttn.setImageResource(
                 if (vacancy.isFavorite) R.drawable.fill_heart_icon else R.drawable.heart_icon
             )
             // Обработка нажатия на весь элемент
             itemView.setOnClickListener { onVacancyClick(vacancy) }
-            favoriteImageView.setOnClickListener { onFavoriteClick(vacancy) }
-            buttonrespons.setOnClickListener { onApplyClick(vacancy) } // Обработка нажатия на кнопку "Откликнуться"
+            binding.searchLikeBttn.setOnClickListener { onFavoriteClick(vacancy) }
+            binding.responsButton.setOnClickListener { onApplyClick(vacancy) } // Обработка нажатия на кнопку "Откликнуться"
         }
     }
 
     // ViewHolder для кнопки "Еще вакансий"
-    class ShowMoreViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private val showMoreButton: Button = itemView.findViewById(R.id.more_vacancies_button)
+    class ShowMoreViewHolder(val binding: ItemShowMoreButtonBinding) : RecyclerView.ViewHolder(binding.root) {
+       // private val showMoreButton: Button = itemView.findViewById(R.id.more_vacancies_button)
         private val wordDeclension = WordDeclension()
         fun bind(onShowMoreClick: () -> Unit, remainingCount: Int) {
 
-            val vacancy = wordDeclension.getVacancyCountString(remainingCount.toInt(), itemView.context)
-            showMoreButton.text = "Еще $vacancy"
-            showMoreButton.setOnClickListener { onShowMoreClick() }
+            val vacancy = wordDeclension.getVacancyCountString(remainingCount, itemView.context)
+            binding.moreVacanciesButton.text = "Еще $vacancy"
+            binding.moreVacanciesButton.setOnClickListener { onShowMoreClick() }
         }
     }
 
@@ -106,13 +108,15 @@ class ListVacancyAdapter  (private var vacancies: List<VacancyModel>,
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return if (viewType == ITEM_TYPE_VACANCY) {
-            val view =
-                LayoutInflater.from(parent.context).inflate(R.layout.vacancy_item, parent, false)
-            VacancyViewHolder(view)
+//            val view =
+//                LayoutInflater.from(parent.context).inflate(R.layout.vacancy_item, parent, false)
+            val binding: VacancyItemBinding = VacancyItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+            VacancyViewHolder(binding)
         } else {
-            val view = LayoutInflater.from(parent.context)
-                .inflate(R.layout.item_show_more_button, parent, false)
-            ShowMoreViewHolder(view)
+//            val view = LayoutInflater.from(parent.context)
+//                .inflate(R.layout.item_show_more_button, parent, false)
+            val binding: ItemShowMoreButtonBinding = ItemShowMoreButtonBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+            ShowMoreViewHolder(binding)
         }
     }
 
