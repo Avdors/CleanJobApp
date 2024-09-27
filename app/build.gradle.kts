@@ -54,6 +54,7 @@ dependencies {
     implementation(project(":shared"))
     implementation(project(":feature"))
     implementation(project(":feature:listVacancy"))
+    implementation(project(":feature:cardvacancy"))
     //implementation(project(":data"))
     implementation(libs.lifecycle.viewmodel)
 

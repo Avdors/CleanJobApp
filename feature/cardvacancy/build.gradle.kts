@@ -12,7 +12,7 @@ android {
 
     defaultConfig {
         minSdk = 26
-
+        viewBinding.enable = true
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
     }
@@ -47,6 +47,9 @@ dependencies {
 
     implementation(project(":shared:core"))
     implementation(project(":shared"))
+    implementation(project(":feature"))
+    implementation(project(":feature:listVacancy"))
+
 
     // Core Koin library
     implementation(libs.koin.core)

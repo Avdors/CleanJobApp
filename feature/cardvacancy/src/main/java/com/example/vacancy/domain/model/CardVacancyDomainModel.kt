@@ -1,6 +1,6 @@
 package com.example.vacancy.domain.model
 
-class CardVacancyDomainModel(
+data class CardVacancyDomainModel(
     val id: String,
     val lookingNumber: Int,
     val title: String,
