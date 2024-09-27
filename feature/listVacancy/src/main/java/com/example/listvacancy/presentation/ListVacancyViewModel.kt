@@ -77,7 +77,15 @@ class ListVacancyViewModel(
     }
 
     // Добавление вакансии в избранное
-    suspend fun addToFavorites(vacancy: VacancyModel) {
+
+    fun updateFavorites(vacancy: VacancyModel){
+        if (vacancy.isFavorite) {
+            removeFromFavorites(vacancy)
+        } else{
+            addToFavorites(vacancy)
+        }
+    }
+    fun addToFavorites(vacancy: VacancyModel) {
         viewModelScope.launch {
             try {
                 val domainModel = VacancyMapper.mapToDomainModel(vacancy)
@@ -90,7 +98,7 @@ class ListVacancyViewModel(
     }
 
     // Удаление вакансии из избранного
-    suspend fun removeFromFavorites(vacancy: VacancyModel) {
+    fun removeFromFavorites(vacancy: VacancyModel) {
         viewModelScope.launch {
             try {
                 val domainModel = VacancyMapper.mapToDomainModel(vacancy)

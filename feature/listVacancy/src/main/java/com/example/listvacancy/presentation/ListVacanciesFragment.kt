@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.TextView
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.core.utils.SpacesItemDecoration
@@ -85,10 +86,15 @@ class ListVacanciesFragment : Fragment() {
 //                    .replace(R.id.content, fragment)
 //                    .addToBackStack(null)
 //                    .commit()
+
+                val vacancyId = vacancy.id
+                val deepLinkUri = Uri.parse("app://vacancy.com/vacancy/$vacancyId")
+                findNavController().navigate(deepLinkUri)
             },
             // клик по кнопке избранное
             onFavoriteClick = { vacancy ->
                // jobsViewModel.toggleFavorite(vacancy)
+                jobsViewModel.updateFavorites(vacancy = vacancy)
                 vacancyAdapter.updateVacancies(jobsViewModel.vacancies.value, isFullListDisplayed, jobsViewModel.vacancies.value.size)
             },
             onShowMoreClick = {

@@ -8,6 +8,10 @@ import com.example.core.data.database.model.VacancyModelDataBase
 
 @Dao
 interface VacancyDao {
+    //дописать запрос
+    @Query("SELECT * FROM vacancies WHERE id = :vacancyId")
+    suspend fun getVacancyById(vacancyId: String): VacancyModelDataBase
+
     @Query("SELECT * FROM vacancies")
     suspend fun getAllVacancies(): List<VacancyModelDataBase>
 

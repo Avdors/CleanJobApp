@@ -14,6 +14,7 @@ class App: Application() {
             androidContext(this@App)
             modules(com.example.core.di.KoinModule)
             modules(com.example.listvacancy.di.listVacancyModule)
+            modules(com.example.vacancy.di.cardVacancyModule)
         }
 
     }

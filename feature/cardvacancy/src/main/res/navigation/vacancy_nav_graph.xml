@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/vacancy_nav_graph"
+    app:startDestination="@id/listVacanciesFragment">
+
+    <!-- Fragment для списка вакансий -->
+    <fragment
+        android:id="@+id/listVacanciesFragment"
+        android:name="com.example.listvacancy.presentation.ListVacanciesFragment"
+        android:label="fragment_list_vacancies"
+        tools:layout="@layout/fragment_list_vacancies" />
+
+    <!-- Fragment для карточки вакансии -->
+    <fragment
+        android:id="@+id/cardVacancyFragment"
+        android:name="com.example.vacancy.presentation.CardVacancyFragment"
+        android:label="fragment_card_vacancy"
+        tools:layout="@layout/fragment_card_vacancy">
+        <argument
+            android:name="vacancyId"
+            app:argType="string"
+            />
+        <deepLink
+            app:uri="app://vacancy.com/vacancy/{vacancyId}" />
+    </fragment>
+
+</navigation>
