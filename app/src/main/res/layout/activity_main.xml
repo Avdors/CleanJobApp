@@ -22,7 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:defaultNavHost="true"
-        app:navGraph="@navigation/vacancy_nav_graph"
+        app:navGraph="@navigation/nav_graph"
         app:layout_constraintBottom_toTopOf="@id/bottomNav"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -32,7 +32,6 @@
         style="@style/CustomBottomNavigationView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
         android:background="@color/black"
         app:menu="@menu/bottom_menu"
         app:itemIconTint="@color/color_tab"

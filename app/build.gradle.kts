@@ -55,6 +55,7 @@ dependencies {
     implementation(project(":feature"))
     implementation(project(":feature:listVacancy"))
     implementation(project(":feature:cardvacancy"))
+    implementation(project(":feature:favoritevacancy"))
     //implementation(project(":data"))
     implementation(libs.lifecycle.viewmodel)
 

@@ -52,4 +52,5 @@
     <string name="vacancy_one">%d вакансия</string>
     <string name="vacancy_few">%d вакансии</string>
     <string name="vacancy_many">%d вакансий</string>
+    <string name="in_progress">ЭТА ФУНКЦИЯ В РАЗАРАБОТКЕ</string>
 </resources>

@@ -2,15 +2,34 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/vacancy_nav_graph"
+    android:id="@+id/nav_graph"
     app:startDestination="@id/listVacanciesFragment">
-
     <!-- Fragment для списка вакансий -->
     <fragment
         android:id="@+id/listVacanciesFragment"
         android:name="com.example.listvacancy.presentation.ListVacanciesFragment"
         android:label="fragment_list_vacancies"
-        tools:layout="@layout/fragment_list_vacancies" />
+        tools:layout="@layout/fragment_list_vacancies">
+
+    </fragment>
+
+    <!-- Fragment для избранных вакансий -->
+    <fragment
+        android:id="@+id/favoriteVacanciesFragment"
+        android:name="com.example.favoritevacancy.presentation.FavoriteVacanciesFragment"
+        android:label="fragment_favorite_vacancies"
+        tools:layout="@layout/fragment_favorite_vacancies">
+
+    </fragment>
+
+    <!-- Заглушка InProgressFragment -->
+    <fragment
+        android:id="@+id/inProgressFragment"
+        android:name="com.example.core.presentation.InProgressFragment"
+        android:label="fragment_in_progress"
+        tools:layout="@layout/fragment_in_progress">
+
+    </fragment>
 
     <!-- Fragment для карточки вакансии -->
     <fragment
@@ -25,5 +44,4 @@
         <deepLink
             app:uri="app://vacancy.com/vacancy/{vacancyId}" />
     </fragment>
-
 </navigation>
