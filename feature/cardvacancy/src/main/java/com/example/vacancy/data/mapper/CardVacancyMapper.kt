@@ -30,6 +30,25 @@ class CardVacancyMapper {
         )
     }
 
+    fun mapToDomainFavorite(vacancy: FavoriteVacModelDataBase): CardVacancyDomainModel {
+        return CardVacancyDomainModel(
+            id = vacancy.id,
+            lookingNumber = vacancy.lookingNumber ?: 0,
+            title = vacancy.title,
+            address = CardDomainAddressModel(vacancy.address.town, vacancy.address.street, vacancy.address.house),
+            company = vacancy.company,
+            experience = CardDomainExperienceModel(vacancy.experience.previewText, vacancy.experience.text),
+            publishedDate = vacancy.publishedDate,
+            isFavorite = vacancy.isFavorite,
+            salary = CardDomainSalaryModel(vacancy.salary.full, vacancy.salary.short ?: ""),
+            schedules = vacancy.schedules,
+            appliedNumber = vacancy.appliedNumber ?: 0,
+            description = vacancy.description ?: "",
+            responsibilities = vacancy.responsibilities ?: "",
+            questions = vacancy.questions ?: emptyList()
+        )
+    }
+
     fun mapToFavoriteModel(vacancyModel: CardVacancyDomainModel): FavoriteVacModelDataBase {
         return FavoriteVacModelDataBase(
             id = vacancyModel.id,

@@ -12,8 +12,10 @@ interface FavoritesDao {
     @Upsert
     suspend fun upsertItem(item: FavoriteVacModelDataBase)
 
-    @Query("select * from vacancies")
-    fun getItemList(): List<FavoriteVacModelDataBase>
+    @Query("SELECT * FROM favorites WHERE id = :vacancyId")
+    suspend fun getVacancyByIdfromFavorite(vacancyId: String): FavoriteVacModelDataBase
+    @Query("SELECT * FROM favorites")
+    fun getItemList(): Flow<List<FavoriteVacModelDataBase>>
 
     @Delete
     suspend fun delete(item: FavoriteVacModelDataBase)

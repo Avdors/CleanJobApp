@@ -45,7 +45,14 @@ object VacancyMapper {
     }
 
     // Маппинг из UI-модели в доменную модель для работы с use cases
-    fun mapToDomainModel(uiModel: VacancyModel): ListVacancyDomainModel {
+    // если ставим отметку избранного то в мапинг передаем true
+    fun mapToDomainModel(uiModel: VacancyModel, isFavoriteVal: Boolean = false): ListVacancyDomainModel {
+        val isFavoriteForVacancy = if(isFavoriteVal){
+            true
+        }else{
+            uiModel.isFavorite
+        }
+
         return ListVacancyDomainModel(
             id = uiModel.id,
             lookingNumber = uiModel.lookingNumber,
@@ -61,7 +68,7 @@ object VacancyMapper {
                 uiModel.experience.text
             ),
             publishedDate = uiModel.publishedDate,
-            isFavorite = uiModel.isFavorite,
+            isFavorite = isFavoriteForVacancy,
             salary = ListSalaryDomainModel(
                 uiModel.salary.full,
                 uiModel.salary.short

@@ -45,6 +45,7 @@ dimen sp26
 drawable back_grey1_corner12
 drawable done_icon
 drawable experience_icon
+drawable fill_heart_icon
 drawable heart_icon
 font sf_pro_medium
 font sf_pro_regular

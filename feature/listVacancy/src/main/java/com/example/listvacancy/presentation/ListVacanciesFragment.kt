@@ -48,10 +48,7 @@ class ListVacanciesFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        Log.d("ListVacanciesFragment", "open true")
-        quantityVacancyTextView = binding.quantityVacancy
-        accordanceWithTextView = binding.twAccordanceWith
-        searchEditText = binding.fieldSearchEt
+
 
 
         // Инициализация RecyclerView
@@ -86,9 +83,9 @@ class ListVacanciesFragment : Fragment() {
 //                    .replace(R.id.content, fragment)
 //                    .addToBackStack(null)
 //                    .commit()
-
                 val vacancyId = vacancy.id
-                val deepLinkUri = Uri.parse("app://vacancy.com/vacancy/$vacancyId")
+                val isFromFavorites = false // Передаем информацию, что это вызов из избранного
+                val deepLinkUri = Uri.parse("app://vacancy.com/vacancy/$vacancyId?fromFavorites=$isFromFavorites")
                 findNavController().navigate(deepLinkUri)
             },
             // клик по кнопке избранное
@@ -105,14 +102,14 @@ class ListVacanciesFragment : Fragment() {
                 // Скрываю верхний список предложений
                 offerRecyclerView.visibility = View.GONE
 
-                quantityVacancyTextView.visibility = View.VISIBLE
-                accordanceWithTextView.visibility = View.VISIBLE
+                binding.quantityVacancy.visibility = View.VISIBLE
+                binding.twAccordanceWith.visibility = View.VISIBLE
 
                 // Изменяю drawable в EditText на стрелку назад
-                searchEditText.setCompoundDrawablesWithIntrinsicBounds(R.drawable.backarrow, 0, 0, 0)
+                binding.fieldSearchEt.setCompoundDrawablesWithIntrinsicBounds(R.drawable.backarrow, 0, 0, 0)
 
                 // Устанавливаю обработчик нажатия на EditText для возврата списка к первоначальному состоянию
-                searchEditText.setOnClickListener {
+                binding.fieldSearchEt.setOnClickListener {
                     if(isFullListDisplayed){
                         resetVacancyList(offerRecyclerView)
                     }
@@ -144,7 +141,7 @@ class ListVacanciesFragment : Fragment() {
                 //avd
                // val vacancy = 123
 
-                    quantityVacancyTextView.text = "$vacancy"
+                binding.quantityVacancy.text = "$vacancy"
                 // Изначально показываю только первые 3 вакансии и кнопку "Еще вакансий"
                 Log.d("ListVacanciesFragment", "Vacancies: ${vacancies.size}")
                 if (vacancies.size > 3 && !isFullListDisplayed) {
@@ -165,11 +162,11 @@ class ListVacanciesFragment : Fragment() {
         offerRecyclerView?.visibility = View.VISIBLE
 
         // Скрываю количество вакансий и текст "Соответствие"
-        quantityVacancyTextView.visibility = View.GONE
-        accordanceWithTextView.visibility = View.GONE
+        binding.quantityVacancy.visibility = View.GONE
+        binding.twAccordanceWith.visibility = View.GONE
 
         // Возвращаю иконку поиска в EditText
-        searchEditText.setCompoundDrawablesWithIntrinsicBounds(R.drawable.search_icon, 0, 0, 0)
+        binding.fieldSearchEt.setCompoundDrawablesWithIntrinsicBounds(R.drawable.search_icon, 0, 0, 0)
 
 
     }

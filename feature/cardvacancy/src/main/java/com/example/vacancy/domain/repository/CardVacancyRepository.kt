@@ -8,4 +8,5 @@ interface CardVacancyRepository {
 
     suspend fun toggleFavorite(vacancyModel: CardVacancyDomainModel)
     suspend fun loadVacancyById(vacancyId: String): Flow<CardVacancyDomainModel>
+    suspend fun loadVacancyByIdFromFavorites(vacancyId: String): Flow<CardVacancyDomainModel>
 }

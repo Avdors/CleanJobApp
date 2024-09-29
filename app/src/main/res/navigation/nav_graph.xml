@@ -41,7 +41,12 @@
             android:name="vacancyId"
             app:argType="string"
             />
+        <!-- Аргумент для fromFavorites -->
+        <argument
+            android:name="fromFavorites"
+            app:argType="boolean"
+            android:defaultValue="false" /> <!-- По умолчанию false, если не указано -->
         <deepLink
-            app:uri="app://vacancy.com/vacancy/{vacancyId}" />
+            app:uri="app://vacancy.com/vacancy/{vacancyId}?fromFavorites={fromFavorites}" />
     </fragment>
 </navigation>

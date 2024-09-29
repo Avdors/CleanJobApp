@@ -89,7 +89,7 @@ class ListVacancyViewModel(
     fun addToFavorites(vacancy: VacancyModel) {
         viewModelScope.launch {
             try {
-                val domainModel = VacancyMapper.mapToDomainModel(vacancy)
+                val domainModel = VacancyMapper.mapToDomainModel(vacancy, true)
                 favoriteUseCase.addToFavorites(domainModel)
                 updateFavoriteStatus(vacancy.id, true)
             } catch (e: Exception) {

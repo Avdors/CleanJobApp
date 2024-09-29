@@ -43,6 +43,7 @@ int dimen sp26 0x0
 int drawable back_grey1_corner12 0x0
 int drawable done_icon 0x0
 int drawable experience_icon 0x0
+int drawable fill_heart_icon 0x0
 int drawable heart_icon 0x0
 int font sf_pro_medium 0x0
 int font sf_pro_regular 0x0
