@@ -4,12 +4,10 @@ plugins {
     alias(libs.plugins.ksp)
     alias(libs.plugins.kotlin.parcelize)
     alias(libs.plugins.serialization)
-
-
 }
 
 android {
-    namespace = "com.example.core"
+    namespace = "com.example.listvacancy"
     compileSdk = 34
 
     defaultConfig {
@@ -45,6 +43,11 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+    implementation(libs.lifecycle.viewmodel)
+
+    implementation(project(":shared:core"))
+    implementation(project(":shared"))
 
     // Core Koin library
     implementation(libs.koin.core)
@@ -84,6 +87,8 @@ dependencies {
     implementation(libs.androidx.room.runtime)
     implementation(libs.androidx.room.ktx)
     ksp(libs.androidx.room.compiler)
+
+
 
 
 }

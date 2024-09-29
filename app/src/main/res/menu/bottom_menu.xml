@@ -3,17 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/searchFragment"
+        android:id="@+id/listVacanciesFragment"
         android:icon="@drawable/search_icon"
         android:title="@string/search"
         app:showAsAction="ifRoom"/>
     <item
-        android:id="@+id/favoritesFragment"
+        android:id="@+id/favoriteVacanciesFragment"
         android:icon="@drawable/heart_icon"
         android:title="@string/favorites"
         app:showAsAction="ifRoom"/>
     <item
-        android:id="@+id/responsesFragment"
+        android:id="@+id/responsFragment"
         android:title="@string/responses"
         android:icon="@drawable/responses_icon"
         app:showAsAction="ifRoom"/>

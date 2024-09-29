@@ -4,14 +4,11 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.core.databinding.VacancyItemBinding
 import com.example.core.utils.WordDeclension
 import com.example.listvacancy.R
 import com.example.listvacancy.databinding.ItemShowMoreButtonBinding
-import com.example.listvacancy.databinding.VacancyItemBinding
 import com.example.listvacancy.presentation.model.VacancyModel
 
 class ListVacancyAdapter  (private var vacancies: List<VacancyModel>,
@@ -33,15 +30,7 @@ class ListVacancyAdapter  (private var vacancies: List<VacancyModel>,
 
     // ViewHolder для вакансий
     class VacancyViewHolder(val binding: VacancyItemBinding) : RecyclerView.ViewHolder(binding.root) {
-//        private val peopleTextView: TextView? = itemView.findViewById(R.id.item_peopl_count)
-//        private val titleTextView: TextView? = itemView.findViewById(R.id.item_vacancy_title)
-//        private val salaryTextView: TextView? = itemView.findViewById(R.id.item_vacancy_salary)
-//        private val townTextView: TextView? = itemView.findViewById(R.id.item_vacancy_adress)
-//        private val companyTextView: TextView? = itemView.findViewById(R.id.item_vacancy_company)
-//        private val experienceTextView: TextView? = itemView.findViewById(R.id.item_experience)
-//        private val publishedDateTextView: TextView? = itemView.findViewById(R.id.item_date)
-//        private val favoriteImageView: ImageView = itemView.findViewById(R.id.search_like_bttn)
-//        private val buttonrespons: Button = itemView.findViewById(R.id.respons_button)
+
         private val wordDeclension = WordDeclension()
 
         fun bind(
