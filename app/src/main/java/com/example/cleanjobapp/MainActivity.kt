@@ -46,7 +46,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         // Загрузка данных
-        lifecycleScope.launch(Dispatchers.IO) {
+        lifecycleScope.launch() {
             listVacancyViewModel.loadVacancies()
             listVacancyViewModel.loadOffers()
         }
