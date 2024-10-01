@@ -7,7 +7,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.favoritevacancy"
+    namespace = "com.example.responsvacancy"
     compileSdk = 34
 
     defaultConfig {

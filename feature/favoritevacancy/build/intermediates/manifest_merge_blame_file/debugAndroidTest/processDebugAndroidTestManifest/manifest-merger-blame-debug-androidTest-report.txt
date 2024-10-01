@@ -3,24 +3,24 @@
 3    package="com.example.listvacancy.test" >
 4
 5    <uses-sdk
-5-->E:\JobAndroid\NTIteam\CleanJobApp\feature\favoritevacancy\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest2020458352242817479.xml:5:5-74
+5-->E:\JobAndroid\NTIteam\CleanJobApp\feature\favoritevacancy\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest7077087378277303627.xml:5:5-74
 6        android:minSdkVersion="26"
-6-->E:\JobAndroid\NTIteam\CleanJobApp\feature\favoritevacancy\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest2020458352242817479.xml:5:15-41
+6-->E:\JobAndroid\NTIteam\CleanJobApp\feature\favoritevacancy\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest7077087378277303627.xml:5:15-41
 7        android:targetSdkVersion="26" />
-7-->E:\JobAndroid\NTIteam\CleanJobApp\feature\favoritevacancy\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest2020458352242817479.xml:5:42-71
+7-->E:\JobAndroid\NTIteam\CleanJobApp\feature\favoritevacancy\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest7077087378277303627.xml:5:42-71
 8
 9    <instrumentation
-9-->E:\JobAndroid\NTIteam\CleanJobApp\feature\favoritevacancy\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest2020458352242817479.xml:11:5-15:78
+9-->E:\JobAndroid\NTIteam\CleanJobApp\feature\favoritevacancy\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest7077087378277303627.xml:11:5-15:78
 10        android:name="androidx.test.runner.AndroidJUnitRunner"
-10-->E:\JobAndroid\NTIteam\CleanJobApp\feature\favoritevacancy\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest2020458352242817479.xml:11:22-76
+10-->E:\JobAndroid\NTIteam\CleanJobApp\feature\favoritevacancy\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest7077087378277303627.xml:11:22-76
 11        android:functionalTest="false"
-11-->E:\JobAndroid\NTIteam\CleanJobApp\feature\favoritevacancy\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest2020458352242817479.xml:14:22-52
+11-->E:\JobAndroid\NTIteam\CleanJobApp\feature\favoritevacancy\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest7077087378277303627.xml:14:22-52
 12        android:handleProfiling="false"
-12-->E:\JobAndroid\NTIteam\CleanJobApp\feature\favoritevacancy\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest2020458352242817479.xml:13:22-53
+12-->E:\JobAndroid\NTIteam\CleanJobApp\feature\favoritevacancy\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest7077087378277303627.xml:13:22-53
 13        android:label="Tests for com.example.listvacancy.test"
-13-->E:\JobAndroid\NTIteam\CleanJobApp\feature\favoritevacancy\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest2020458352242817479.xml:15:22-76
+13-->E:\JobAndroid\NTIteam\CleanJobApp\feature\favoritevacancy\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest7077087378277303627.xml:15:22-76
 14        android:targetPackage="com.example.listvacancy.test" />
-14-->E:\JobAndroid\NTIteam\CleanJobApp\feature\favoritevacancy\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest2020458352242817479.xml:12:22-74
+14-->E:\JobAndroid\NTIteam\CleanJobApp\feature\favoritevacancy\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest7077087378277303627.xml:12:22-74
 15
 16    <queries>
 16-->[androidx.test:runner:1.6.1] C:\Users\Zver\.gradle\caches\transforms-4\39c2179a8c21ca092053030614e8d8c0\transformed\runner-1.6.1\AndroidManifest.xml:24:5-28:15
@@ -63,14 +63,14 @@
 32-->[androidx.core:core:1.13.1] C:\Users\Zver\.gradle\caches\transforms-4\05cb0fa3c6105008e2e7ae8073ce7294\transformed\core-1.13.1\AndroidManifest.xml:26:22-94
 33
 34    <application
-34-->E:\JobAndroid\NTIteam\CleanJobApp\feature\favoritevacancy\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest2020458352242817479.xml:7:5-9:19
+34-->E:\JobAndroid\NTIteam\CleanJobApp\feature\favoritevacancy\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest7077087378277303627.xml:7:5-9:19
 35        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
 35-->[androidx.core:core:1.13.1] C:\Users\Zver\.gradle\caches\transforms-4\05cb0fa3c6105008e2e7ae8073ce7294\transformed\core-1.13.1\AndroidManifest.xml:28:18-86
 36        android:debuggable="true"
 37        android:extractNativeLibs="false" >
 38        <uses-library android:name="android.test.runner" />
-38-->E:\JobAndroid\NTIteam\CleanJobApp\feature\favoritevacancy\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest2020458352242817479.xml:8:9-60
-38-->E:\JobAndroid\NTIteam\CleanJobApp\feature\favoritevacancy\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest2020458352242817479.xml:8:23-57
+38-->E:\JobAndroid\NTIteam\CleanJobApp\feature\favoritevacancy\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest7077087378277303627.xml:8:9-60
+38-->E:\JobAndroid\NTIteam\CleanJobApp\feature\favoritevacancy\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest7077087378277303627.xml:8:23-57
 39
 40        <activity
 40-->[androidx.test:core:1.6.1] C:\Users\Zver\.gradle\caches\transforms-4\56d84626e1b0f01f6096d489e4ee800b\transformed\core-1.6.1\AndroidManifest.xml:27:9-34:20
