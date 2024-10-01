@@ -41,6 +41,20 @@ class CardVacancyViewModel(
         }
     }
 
+    fun loadVacancyFavorite(vacancyId: String) {
+        viewModelScope.launch {
+            try {
+                loadVacancyUseCase.loadVacancyByIdFavorite(vacancyId).collect { vacancyDomain ->
+                    currentVacancy = vacancyDomain
+                    _vacancy.value = CardVacancyMapperUI.mapToUIModel(currentVacancy)
+                    _isFavorite.value = currentVacancy.isFavorite
+                }
+            } catch (e: Exception) {
+                // Обработка ошибки
+            }
+        }
+    }
+
     // Переключение состояния избранного
     fun toggleFavorite() {
         viewModelScope.launch {

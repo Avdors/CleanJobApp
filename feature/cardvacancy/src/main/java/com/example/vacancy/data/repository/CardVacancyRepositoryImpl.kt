@@ -30,4 +30,13 @@ class CardVacancyRepositoryImpl(
             emit(mappedVacancy)
         }
     }
+
+    // Новый метод для загрузки вакансии из избранного
+    override suspend fun loadVacancyByIdFromFavorites(vacancyId: String): Flow<CardVacancyDomainModel> {
+        return flow {
+            val favoriteVacancy = favoritesDao.getVacancyByIdfromFavorite(vacancyId)
+            val mappedVacancy =  vacancyMapper.mapToDomainFavorite(favoriteVacancy)
+            emit(mappedVacancy)
+        }
+    }
 }

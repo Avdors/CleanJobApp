@@ -42,10 +42,12 @@ class CardVacancyFragment : Fragment() {
         // Получаем аргумент vacancyId
         val vacancyId = arguments?.getString("vacancyId")
         Log.d("CardVacancyFragment", "CardVacancyFragment vacancyId $vacancyId")
-
+        val favoritevacancy = arguments?.getBoolean("fromFavorites")
         // Вызываем загрузку вакансии по ID
         vacancyId?.let {
-            сardVacancyViewModel.loadVacancy(it)
+            if(favoritevacancy == true){
+                сardVacancyViewModel.loadVacancyFavorite(it)
+            }else сardVacancyViewModel.loadVacancy(it)
         }
 
         // Подписываемся на изменения вакансии и обновляем UI с использованием repeatOnLifecycle

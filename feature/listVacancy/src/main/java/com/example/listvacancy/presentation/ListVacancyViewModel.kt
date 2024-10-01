@@ -9,6 +9,7 @@ import com.example.listvacancy.domain.usecase.ListVacancyUseCase
 import com.example.listvacancy.presentation.model.ButtonModel
 import com.example.listvacancy.presentation.model.OfferModel
 import com.example.listvacancy.presentation.model.VacancyModel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
@@ -35,7 +36,7 @@ class ListVacancyViewModel(
     }
 
     suspend fun loadVacancies() {
-        viewModelScope.launch {
+        viewModelScope.launch() {
             try {
                 // Получаем список Domain моделей через use case
                 val domainVacancies = listVacancyUseCase.getVacancies()
@@ -56,7 +57,7 @@ class ListVacancyViewModel(
     }
 
     suspend fun loadOffers() {
-        viewModelScope.launch {
+        viewModelScope.launch() {
             try {
                 val domainOffers = listVacancyUseCase.getOffers()
                 Log.d("ListVacancyViewModel", "domainOffers: ${domainOffers.size}")
@@ -88,7 +89,7 @@ class ListVacancyViewModel(
     fun addToFavorites(vacancy: VacancyModel) {
         viewModelScope.launch {
             try {
-                val domainModel = VacancyMapper.mapToDomainModel(vacancy)
+                val domainModel = VacancyMapper.mapToDomainModel(vacancy, true)
                 favoriteUseCase.addToFavorites(domainModel)
                 updateFavoriteStatus(vacancy.id, true)
             } catch (e: Exception) {

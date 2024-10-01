@@ -8,4 +8,8 @@ class LoadVacancyUseCase(private val repository: CardVacancyRepository) {
     suspend fun loadVacancyById(vacancyId: String): Flow<CardVacancyDomainModel> {
         return repository.loadVacancyById(vacancyId)
     }
+    suspend fun loadVacancyByIdFavorite(vacancyId: String): Flow<CardVacancyDomainModel> {
+        return repository.loadVacancyByIdFromFavorites(vacancyId)
+    }
+
 }

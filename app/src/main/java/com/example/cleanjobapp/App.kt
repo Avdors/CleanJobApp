@@ -15,6 +15,7 @@ class App: Application() {
             modules(com.example.core.di.KoinModule)
             modules(com.example.listvacancy.di.listVacancyModule)
             modules(com.example.vacancy.di.cardVacancyModule)
+            modules(com.example.favoritevacancy.di.favoriteVacancyModule)
         }
 
     }

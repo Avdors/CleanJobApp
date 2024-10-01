@@ -8,6 +8,12 @@ import com.example.listvacancy.domain.mapper.VacancyDataMapper
 import com.example.listvacancy.domain.model.ListOfferDomainModel
 import com.example.listvacancy.domain.model.ListVacancyDomainModel
 import com.example.listvacancy.domain.repository.ListVacancyRepository
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
+import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.launch
+import kotlin.math.asin
 
 class ListVacancyRepositoryImpl(
     private val remoteDataSource: RemoteDataSource,
@@ -16,55 +22,55 @@ class ListVacancyRepositoryImpl(
     private val offerDataMapper: OfferDataMaper,
 ) : ListVacancyRepository {
     override suspend fun getVacancies(): List<ListVacancyDomainModel> {
-        return try {
-            Log.d("ListVacancyRepositoryImpl", "start: ")
-            // Получаем данные из сети через RemoteDataSource
-            val response = remoteDataSource.getData()
 
-            // Маппим вакансии из сети в доменные модели
-            val vacancies = response.vacancies?.filterNotNull()?.map { vacancy ->
-                vacancyDataMapper.mapToDomain(vacancy)
-            } ?: emptyList()
-            Log.d("ListVacancyRepositoryImpl", "vacancies: ${vacancies.size}")
-            // Сохраняем в кеш
-            localDataSource.saveVacanciesToDB(vacancies.map { vacancyDataMapper.mapToDatabase(it) })
 
-            // Возвращаем вакансии
-            vacancies
-        } catch (e: Exception) {
-            // Если ошибка сети, загружаем данные из кеша
-            val cachedVacancies = localDataSource.getVacanciesFromDB()
-            if (cachedVacancies.isNotEmpty()) {
-                cachedVacancies.map {vacancy ->
-                    vacancyDataMapper.mapToDomainFromDB(vacancy) }
-            } else {
-                throw Exception("Не удалось получить данные")
+        // Сначала загружаем данные из кеша (БД) и возвращаем их
+        val cachedVacancies = localDataSource.getVacanciesFromDB().map { vacancy ->
+            vacancyDataMapper.mapToDomainFromDB(vacancy)
+        }
+
+        // Параллельно запускаем загрузку данных из сети для обновления кеша
+        launchVacancyNetworkLoad()
+
+        // Возвращаем данные из кеша, если они есть
+        return cachedVacancies
+
+    }
+
+    private fun launchVacancyNetworkLoad() {
+        // Запуск корутины для параллельной загрузки данных из сети и кеширования
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+                val response = remoteDataSource.getData()
+
+                // Маппим вакансии из сети в доменные модели
+                val vacancies = response.vacancies?.filterNotNull()?.map { vacancy ->
+                    vacancyDataMapper.mapToDomain(vacancy)
+                } ?: emptyList()
+
+                if (vacancies.isNotEmpty()) {
+                    // Сохраняем новые данные в кеш (БД)
+                    localDataSource.saveVacanciesToDB(vacancies.map { vacancyDataMapper.mapToDatabase(it) })
+                    Log.d("ListVacancyRepositoryImpl", "Данные из сети успешно загружены и сохранены в кеш")
+                }
+            } catch (e: Exception) {
+                Log.e("ListVacancyRepositoryImpl", "Ошибка при получении данных из сети: ${e.message}")
             }
         }
     }
 
     override suspend fun getOffers(): List<ListOfferDomainModel> {
-        return try {
-            val response = remoteDataSource.getData()
 
-            // Маппинг предложений
-            val offers = response.offers?.filterNotNull()?.map { offer ->
-                offerDataMapper.mapOfferToDomain(offer)
-            } ?: emptyList()
-
-            // Сохраняем в локальную БД
-            localDataSource.saveOffersToDB(offers.map { offerDataMapper.mapOfferToDatabase(it) })
-
-            offers
-        } catch (e: Exception) {
-            // Загружаем из кеша при ошибке сети
-            val cachedOffers = localDataSource.getOffersFromDB()
-            if (cachedOffers.isNotEmpty()) {
-                cachedOffers.map { offerDataMapper.mapOfferToDomainFromDB(it) }
-            } else {
-                throw Exception("Не удалось получить данные")
-            }
+        // Сразу загружаем данные из кеша (БД)
+        val cachedOffers = localDataSource.getOffersFromDB().map { offer ->
+            offerDataMapper.mapOfferToDomainFromDB(offer)
         }
+
+        // Параллельно запускаем загрузку из сети для обновления данных
+        launchNetworkLoad()
+
+        // Возвращаем данные из БД, если они есть
+        return cachedOffers
     }
 
     override suspend fun saveFavorite(vacancy: ListVacancyDomainModel) {
@@ -74,5 +80,28 @@ class ListVacancyRepositoryImpl(
 
     override suspend fun deleteFavorite(vacancy: ListVacancyDomainModel) {
         localDataSource.deleteFavoriteDB(vacancyDataMapper.mapFavoriteToDatabase(vacancy))
+    }
+
+    private fun launchNetworkLoad() {
+        // Запуск корутины для параллельной загрузки данных из сети и кеширования
+
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+                val response = remoteDataSource.getData()
+
+                // Маппим предложения из сети в доменные модели
+                val offers = response.offers?.filterNotNull()?.map { offer ->
+                    offerDataMapper.mapOfferToDomain(offer)
+                } ?: emptyList()
+
+                if (offers.isNotEmpty()) {
+                    // Сохраняем новые данные в кеш (БД)
+                    localDataSource.saveOffersToDB(offers.map { offerDataMapper.mapOfferToDatabase(it) })
+                    Log.d("ListVacancyRepositoryImpl", "Данные из сети успешно загружены и сохранены в кеш")
+                }
+            } catch (e: Exception) {
+                Log.e("ListVacancyRepositoryImpl", "Ошибка при получении данных из сети: ${e.message}")
+            }
+        }
     }
 }
