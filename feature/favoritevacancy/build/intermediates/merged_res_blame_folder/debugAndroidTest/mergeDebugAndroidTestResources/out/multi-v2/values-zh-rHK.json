@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.listvacancy.test.favoritevacancy-mergeDebugAndroidTestResources-68:/values-zh-rHK/values-zh-rHK.xml",
+            "outputFile": "com.example.favoritevacancy.test.favoritevacancy-mergeDebugAndroidTestResources-68:/values-zh-rHK/values-zh-rHK.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Zver\\.gradle\\caches\\transforms-4\\47de46957f97c2839818d25cea8ae120\\transformed\\material-1.12.0\\res\\values-zh-rHK\\values-zh-rHK.xml",

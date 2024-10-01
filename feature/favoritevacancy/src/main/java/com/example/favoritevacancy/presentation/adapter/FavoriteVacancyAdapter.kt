@@ -7,8 +7,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.core.databinding.VacancyItemBinding
 import com.example.core.utils.WordDeclension
+import com.example.favoritevacancy.R
 import com.example.favoritevacancy.presentation.model.FavoriteVacancyModel
-import com.example.listvacancy.R
+
 
 class FavoriteVacancyAdapter(
     private var vacancies: List<FavoriteVacancyModel>,

@@ -1,4 +1,4 @@
-#Tue Oct 01 05:02:24 CEST 2024
+#Tue Oct 01 05:13:44 CEST 2024
 base.0=E\:\\JobAndroid\\NTIteam\\CleanJobApp\\feature\\favoritevacancy\\build\\intermediates\\dex\\debugAndroidTest\\mergeExtDexDebugAndroidTest\\classes.dex
 base.1=E\:\\JobAndroid\\NTIteam\\CleanJobApp\\feature\\favoritevacancy\\build\\intermediates\\dex\\debugAndroidTest\\mergeLibDexDebugAndroidTest\\11\\classes.dex
 base.10=E\:\\JobAndroid\\NTIteam\\CleanJobApp\\feature\\favoritevacancy\\build\\intermediates\\dex\\debugAndroidTest\\mergeLibDexDebugAndroidTest\\7\\classes.dex

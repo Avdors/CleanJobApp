@@ -2,20 +2,18 @@ package com.example.favoritevacancy.presentation
 
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.core.utils.SpacesItemDecoration
 import com.example.core.utils.WordDeclension
+import com.example.favoritevacancy.R
+import com.example.favoritevacancy.databinding.FragmentFavoriteVacanciesBinding
 import com.example.favoritevacancy.presentation.adapter.FavoriteVacancyAdapter
-import com.example.favoritevacancy.presentation.model.FavoriteVacancyModel
-import com.example.listvacancy.R
-import com.example.listvacancy.databinding.FragmentFavoriteVacanciesBinding
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 

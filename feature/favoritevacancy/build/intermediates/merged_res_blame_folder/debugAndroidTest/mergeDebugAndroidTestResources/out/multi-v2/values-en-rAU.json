@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.listvacancy.test.favoritevacancy-mergeDebugAndroidTestResources-68:/values-en-rAU/values-en-rAU.xml",
+            "outputFile": "com.example.favoritevacancy.test.favoritevacancy-mergeDebugAndroidTestResources-68:/values-en-rAU/values-en-rAU.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Zver\\.gradle\\caches\\transforms-4\\2cc929d8bc1096eb0df9f29a35c5bcf7\\transformed\\navigation-ui-2.7.7\\res\\values-en-rAU\\values-en-rAU.xml",

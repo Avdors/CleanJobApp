@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.listvacancy.test.favoritevacancy-mergeDebugAndroidTestResources-68:/values-watch-v20/values-watch-v20.xml",
+            "outputFile": "com.example.favoritevacancy.test.favoritevacancy-mergeDebugAndroidTestResources-68:/values-watch-v20/values-watch-v20.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Zver\\.gradle\\caches\\transforms-4\\61bcc927d210307f54843b25979960b9\\transformed\\appcompat-1.7.0\\res\\values-watch-v20\\values-watch-v20.xml",

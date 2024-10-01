@@ -4,7 +4,7 @@
     "type": "PROCESSED_RES",
     "kind": "Directory"
   },
-  "applicationId": "com.example.listvacancy.test",
+  "applicationId": "com.example.favoritevacancy.test",
   "variantName": "debugAndroidTest",
   "elements": [
     {

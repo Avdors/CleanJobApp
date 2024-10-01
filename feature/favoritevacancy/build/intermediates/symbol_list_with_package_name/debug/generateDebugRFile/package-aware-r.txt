@@ -1,4 +1,4 @@
-com.example.listvacancy
+com.example.favoritevacancy
 color black
 color blue
 color dark_blue

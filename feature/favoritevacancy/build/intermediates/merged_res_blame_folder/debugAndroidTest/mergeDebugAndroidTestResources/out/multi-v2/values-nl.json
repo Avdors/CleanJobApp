@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.listvacancy.test.favoritevacancy-mergeDebugAndroidTestResources-68:/values-nl/values-nl.xml",
+            "outputFile": "com.example.favoritevacancy.test.favoritevacancy-mergeDebugAndroidTestResources-68:/values-nl/values-nl.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Zver\\.gradle\\caches\\transforms-4\\0cf43aa9fb4746c8e9bbc657530fbf7b\\transformed\\ui-release\\res\\values-nl\\values-nl.xml",

@@ -1,26 +1,26 @@
 1<?xml version="1.0" encoding="utf-8"?>
 2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-3    package="com.example.listvacancy.test" >
+3    package="com.example.favoritevacancy.test" >
 4
 5    <uses-sdk
-5-->E:\JobAndroid\NTIteam\CleanJobApp\feature\favoritevacancy\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest7077087378277303627.xml:5:5-74
+5-->E:\JobAndroid\NTIteam\CleanJobApp\feature\favoritevacancy\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest17576908699003393082.xml:5:5-74
 6        android:minSdkVersion="26"
-6-->E:\JobAndroid\NTIteam\CleanJobApp\feature\favoritevacancy\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest7077087378277303627.xml:5:15-41
+6-->E:\JobAndroid\NTIteam\CleanJobApp\feature\favoritevacancy\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest17576908699003393082.xml:5:15-41
 7        android:targetSdkVersion="26" />
-7-->E:\JobAndroid\NTIteam\CleanJobApp\feature\favoritevacancy\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest7077087378277303627.xml:5:42-71
+7-->E:\JobAndroid\NTIteam\CleanJobApp\feature\favoritevacancy\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest17576908699003393082.xml:5:42-71
 8
 9    <instrumentation
-9-->E:\JobAndroid\NTIteam\CleanJobApp\feature\favoritevacancy\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest7077087378277303627.xml:11:5-15:78
+9-->E:\JobAndroid\NTIteam\CleanJobApp\feature\favoritevacancy\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest17576908699003393082.xml:11:5-15:82
 10        android:name="androidx.test.runner.AndroidJUnitRunner"
-10-->E:\JobAndroid\NTIteam\CleanJobApp\feature\favoritevacancy\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest7077087378277303627.xml:11:22-76
+10-->E:\JobAndroid\NTIteam\CleanJobApp\feature\favoritevacancy\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest17576908699003393082.xml:11:22-76
 11        android:functionalTest="false"
-11-->E:\JobAndroid\NTIteam\CleanJobApp\feature\favoritevacancy\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest7077087378277303627.xml:14:22-52
+11-->E:\JobAndroid\NTIteam\CleanJobApp\feature\favoritevacancy\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest17576908699003393082.xml:14:22-52
 12        android:handleProfiling="false"
-12-->E:\JobAndroid\NTIteam\CleanJobApp\feature\favoritevacancy\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest7077087378277303627.xml:13:22-53
-13        android:label="Tests for com.example.listvacancy.test"
-13-->E:\JobAndroid\NTIteam\CleanJobApp\feature\favoritevacancy\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest7077087378277303627.xml:15:22-76
-14        android:targetPackage="com.example.listvacancy.test" />
-14-->E:\JobAndroid\NTIteam\CleanJobApp\feature\favoritevacancy\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest7077087378277303627.xml:12:22-74
+12-->E:\JobAndroid\NTIteam\CleanJobApp\feature\favoritevacancy\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest17576908699003393082.xml:13:22-53
+13        android:label="Tests for com.example.favoritevacancy.test"
+13-->E:\JobAndroid\NTIteam\CleanJobApp\feature\favoritevacancy\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest17576908699003393082.xml:15:22-80
+14        android:targetPackage="com.example.favoritevacancy.test" />
+14-->E:\JobAndroid\NTIteam\CleanJobApp\feature\favoritevacancy\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest17576908699003393082.xml:12:22-78
 15
 16    <queries>
 16-->[androidx.test:runner:1.6.1] C:\Users\Zver\.gradle\caches\transforms-4\39c2179a8c21ca092053030614e8d8c0\transformed\runner-1.6.1\AndroidManifest.xml:24:5-28:15
@@ -53,24 +53,24 @@
 27
 28    <permission
 28-->[androidx.core:core:1.13.1] C:\Users\Zver\.gradle\caches\transforms-4\05cb0fa3c6105008e2e7ae8073ce7294\transformed\core-1.13.1\AndroidManifest.xml:22:5-24:47
-29        android:name="com.example.listvacancy.test.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+29        android:name="com.example.favoritevacancy.test.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
 29-->[androidx.core:core:1.13.1] C:\Users\Zver\.gradle\caches\transforms-4\05cb0fa3c6105008e2e7ae8073ce7294\transformed\core-1.13.1\AndroidManifest.xml:23:9-81
 30        android:protectionLevel="signature" />
 30-->[androidx.core:core:1.13.1] C:\Users\Zver\.gradle\caches\transforms-4\05cb0fa3c6105008e2e7ae8073ce7294\transformed\core-1.13.1\AndroidManifest.xml:24:9-44
 31
-32    <uses-permission android:name="com.example.listvacancy.test.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+32    <uses-permission android:name="com.example.favoritevacancy.test.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
 32-->[androidx.core:core:1.13.1] C:\Users\Zver\.gradle\caches\transforms-4\05cb0fa3c6105008e2e7ae8073ce7294\transformed\core-1.13.1\AndroidManifest.xml:26:5-97
 32-->[androidx.core:core:1.13.1] C:\Users\Zver\.gradle\caches\transforms-4\05cb0fa3c6105008e2e7ae8073ce7294\transformed\core-1.13.1\AndroidManifest.xml:26:22-94
 33
 34    <application
-34-->E:\JobAndroid\NTIteam\CleanJobApp\feature\favoritevacancy\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest7077087378277303627.xml:7:5-9:19
+34-->E:\JobAndroid\NTIteam\CleanJobApp\feature\favoritevacancy\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest17576908699003393082.xml:7:5-9:19
 35        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
 35-->[androidx.core:core:1.13.1] C:\Users\Zver\.gradle\caches\transforms-4\05cb0fa3c6105008e2e7ae8073ce7294\transformed\core-1.13.1\AndroidManifest.xml:28:18-86
 36        android:debuggable="true"
 37        android:extractNativeLibs="false" >
 38        <uses-library android:name="android.test.runner" />
-38-->E:\JobAndroid\NTIteam\CleanJobApp\feature\favoritevacancy\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest7077087378277303627.xml:8:9-60
-38-->E:\JobAndroid\NTIteam\CleanJobApp\feature\favoritevacancy\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest7077087378277303627.xml:8:23-57
+38-->E:\JobAndroid\NTIteam\CleanJobApp\feature\favoritevacancy\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest17576908699003393082.xml:8:9-60
+38-->E:\JobAndroid\NTIteam\CleanJobApp\feature\favoritevacancy\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest17576908699003393082.xml:8:23-57
 39
 40        <activity
 40-->[androidx.test:core:1.6.1] C:\Users\Zver\.gradle\caches\transforms-4\56d84626e1b0f01f6096d489e4ee800b\transformed\core-1.6.1\AndroidManifest.xml:27:9-34:20
@@ -125,7 +125,7 @@
 65-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Zver\.gradle\caches\transforms-4\09c8337098f24700b0215a1f13753883\transformed\emoji2-1.3.0\AndroidManifest.xml:24:9-32:20
 66            android:name="androidx.startup.InitializationProvider"
 66-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Zver\.gradle\caches\transforms-4\09c8337098f24700b0215a1f13753883\transformed\emoji2-1.3.0\AndroidManifest.xml:25:13-67
-67            android:authorities="com.example.listvacancy.test.androidx-startup"
+67            android:authorities="com.example.favoritevacancy.test.androidx-startup"
 67-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Zver\.gradle\caches\transforms-4\09c8337098f24700b0215a1f13753883\transformed\emoji2-1.3.0\AndroidManifest.xml:26:13-68
 68            android:exported="false" >
 68-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Zver\.gradle\caches\transforms-4\09c8337098f24700b0215a1f13753883\transformed\emoji2-1.3.0\AndroidManifest.xml:27:13-37
