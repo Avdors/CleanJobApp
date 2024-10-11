@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.core.presentation.ResponsDialogFragment
 import com.example.core.utils.SpacesItemDecoration
 import com.example.core.utils.WordDeclension
 import com.example.favoritevacancy.R
@@ -60,8 +61,8 @@ class FavoriteVacanciesFragment : Fragment() {
             },
 
             onApplyClick = { vacancy ->
-//                val responseDialog = ResponseDialog()
-//                responseDialog.show(requireActivity().supportFragmentManager, "ResponseDialog")
+                val responseDialog = ResponsDialogFragment()
+                responseDialog.show(requireActivity().supportFragmentManager, "ResponseDialog")
             }
         )
         vacancyRecyclerView.adapter = vacancyAdapter
