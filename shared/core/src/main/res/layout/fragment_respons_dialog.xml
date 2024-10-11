@@ -73,7 +73,7 @@
         android:autofillHints=""
         android:drawablePadding="@dimen/dp8"
         android:fontFamily="@font/sf_pro_regular"
-        android:gravity="center_vertical"
+        android:gravity="top|start"
         android:hint="@string/letter"
         android:imeOptions="actionDone"
         android:inputType="textMultiLine"

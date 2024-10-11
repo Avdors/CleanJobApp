@@ -15,6 +15,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
+import com.example.core.presentation.ResponsDialogFragment
 import com.example.listvacancy.databinding.FragmentListVacanciesBinding
 import com.example.vacancy.R
 import com.example.vacancy.databinding.FragmentCardVacancyBinding
@@ -87,21 +88,16 @@ class CardVacancyFragment : Fragment() {
             openRespons()
         }
 
-        binding.cardListQuestion.setOnClickListener{question ->
 
-            openRespons(question.toString())
-        }
     }
 
     private fun openRespons(question: String = ""){
-        if(question.isNotEmpty()){
-            val deepLinkUri = Uri.parse("app://vacancy.com/vacancy/$vacancyId/respons?questionText=${Uri.encode(question)}")
-            findNavController().navigate(deepLinkUri)
-        }else{
-            val deepLinkUri = Uri.parse("app://vacancy.com/vacancy/$vacancyId/respons?questionText=")
-            findNavController().navigate(deepLinkUri)
+        val responseDialog = ResponsDialogFragment()
+        val bundle = Bundle().apply {
+            putString("questionText", question)
         }
-
+        responseDialog.arguments = bundle
+        responseDialog.show(requireActivity().supportFragmentManager, "ResponsDialogFragment")
     }
 
     // Функция для обновления UI вакансии
@@ -176,6 +172,9 @@ class CardVacancyFragment : Fragment() {
                     resources.getDimensionPixelSize(R.dimen.dp8)
                 )
                 transformationMethod = null
+                setOnClickListener{
+                    openRespons(question)
+                }
             }
             cardListQuestionLayout.addView(button)
         }
