@@ -49,6 +49,7 @@ dependencies {
     implementation(project(":shared:core"))
     implementation(project(":shared"))
 
+
     // Core Koin library
     implementation(libs.koin.core)
     // Koin AndroidX support
