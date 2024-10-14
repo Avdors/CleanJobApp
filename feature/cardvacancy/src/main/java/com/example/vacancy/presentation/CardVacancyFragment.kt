@@ -1,5 +1,6 @@
 package com.example.vacancy.presentation
 
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -13,6 +14,8 @@ import android.widget.TextView
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
+import com.example.core.presentation.ResponsDialogFragment
 import com.example.listvacancy.databinding.FragmentListVacanciesBinding
 import com.example.vacancy.R
 import com.example.vacancy.databinding.FragmentCardVacancyBinding
@@ -26,6 +29,7 @@ class CardVacancyFragment : Fragment() {
     private var isFavoriteVacancy: Boolean = false
     private val сardVacancyViewModel: CardVacancyViewModel by viewModel()
     lateinit var binding: FragmentCardVacancyBinding
+    private var vacancyId: String? = ""
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,7 +44,7 @@ class CardVacancyFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         // Получаем аргумент vacancyId
-        val vacancyId = arguments?.getString("vacancyId")
+         vacancyId = arguments?.getString("vacancyId")
         Log.d("CardVacancyFragment", "CardVacancyFragment vacancyId $vacancyId")
         val favoritevacancy = arguments?.getBoolean("fromFavorites")
         // Вызываем загрузку вакансии по ID
@@ -80,8 +84,20 @@ class CardVacancyFragment : Fragment() {
 
         // Откликнутся
         binding.responsButton.setOnClickListener {
-            // Ваш код для отклика
+            //val vacancyId = vacancy.id
+            openRespons()
         }
+
+
+    }
+
+    private fun openRespons(question: String = ""){
+        val responseDialog = ResponsDialogFragment()
+        val bundle = Bundle().apply {
+            putString("questionText", question)
+        }
+        responseDialog.arguments = bundle
+        responseDialog.show(requireActivity().supportFragmentManager, "ResponsDialogFragment")
     }
 
     // Функция для обновления UI вакансии
@@ -128,6 +144,8 @@ class CardVacancyFragment : Fragment() {
         binding.cardFavorit.setImageResource(favoriteIconRes)
     }
 
+
+
     // Функция для обновления списка вопросов
     private fun updateQuestions(questions: List<String>?) {
         val cardListQuestionLayout = binding.cardListQuestion
@@ -154,6 +172,9 @@ class CardVacancyFragment : Fragment() {
                     resources.getDimensionPixelSize(R.dimen.dp8)
                 )
                 transformationMethod = null
+                setOnClickListener{
+                    openRespons(question)
+                }
             }
             cardListQuestionLayout.addView(button)
         }

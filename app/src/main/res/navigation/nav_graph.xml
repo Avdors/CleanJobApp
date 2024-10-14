@@ -49,4 +49,6 @@
         <deepLink
             app:uri="app://vacancy.com/vacancy/{vacancyId}?fromFavorites={fromFavorites}" />
     </fragment>
+
+
 </navigation>

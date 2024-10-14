@@ -14,6 +14,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.core.presentation.ResponsDialogFragment
 import com.example.core.utils.SpacesItemDecoration
 import com.example.core.utils.WordDeclension
 import com.example.listvacancy.R
@@ -73,16 +74,6 @@ class ListVacanciesFragment : Fragment() {
         vacancyAdapter = ListVacancyAdapter(
             emptyList(),
             onVacancyClick = { vacancy ->
-                // Переход к CardVacancyFragment
-//                val fragment = CardVacancy().apply {
-//                    arguments = Bundle().apply {
-//                        putParcelable("vacancy", vacancy)
-//                    }
-//                }
-//                parentFragmentManager.beginTransaction()
-//                    .replace(R.id.content, fragment)
-//                    .addToBackStack(null)
-//                    .commit()
                 val vacancyId = vacancy.id
                 val isFromFavorites = false // Передаем информацию, что это вызов из избранного
                 val deepLinkUri = Uri.parse("app://vacancy.com/vacancy/$vacancyId?fromFavorites=$isFromFavorites")
@@ -119,8 +110,8 @@ class ListVacanciesFragment : Fragment() {
 
             },
             onApplyClick = { vacancy ->
-//                val responseDialog = ResponseDialog()
-//                responseDialog.show(requireActivity().supportFragmentManager, "ResponseDialog")
+                val responseDialog = ResponsDialogFragment()
+                responseDialog.show(requireActivity().supportFragmentManager, "ResponseDialog")
             }
         )
         vacancyRecyclerView.adapter = vacancyAdapter
