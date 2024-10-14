@@ -27,4 +27,6 @@ include(":feature")
 include(":feature:cardvacancy")
 include(":feature:listVacancy")
 include(":feature:favoritevacancy")
+include(":feature:login")
+
 
