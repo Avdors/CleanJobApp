@@ -6,6 +6,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.cleanjobapp.databinding.ActivityMainBinding
+import com.example.core.utils.SessionManager
 import com.example.listvacancy.presentation.ListVacancyViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -35,12 +36,18 @@ class MainActivity : AppCompatActivity() {
         // Настраиваем ActionBar для работы с NavController
         binding.bottomNav.setupWithNavController(navController)
 
+        if (!isLoggedIn()) {
+            navController.navigate(R.id.loginFirstFragment)
+        }
+
         // Подписываемся на обработку кликов по элементам меню
         binding.bottomNav.setOnItemSelectedListener { item ->
-            when (item.itemId) {
-                R.id.listVacanciesFragment -> navController.navigate(R.id.listVacanciesFragment)
-                R.id.favoriteVacanciesFragment -> navController.navigate(R.id.favoriteVacanciesFragment)
-                else -> navController.navigate(R.id.inProgressFragment) // Для всех остальных пунктов
+            if(isLoggedIn()){
+                when (item.itemId) {
+                    R.id.listVacanciesFragment -> navController.navigate(R.id.listVacanciesFragment)
+                    R.id.favoriteVacanciesFragment -> navController.navigate(R.id.favoriteVacanciesFragment)
+                    else -> navController.navigate(R.id.inProgressFragment) // Для всех остальных пунктов
+                }
             }
             true
         }
@@ -53,6 +60,11 @@ class MainActivity : AppCompatActivity() {
 
 
         }
+
+    private fun isLoggedIn(): Boolean {
+        // Логика проверки авторизации пользователя (например, из SharedPreferences)
+        return SessionManager.isLoggedIn
+    }
 
     }
 

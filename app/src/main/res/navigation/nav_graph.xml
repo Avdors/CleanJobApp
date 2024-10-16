@@ -3,13 +3,41 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/listVacanciesFragment">
+    app:startDestination="@id/loginFirstFragment">
+
+    <!-- LoginFirstFragment -->
+    <fragment
+        android:id="@+id/loginFirstFragment"
+        android:name="com.example.login.presentation.LoginFirstFragment"
+        android:label="fragment_login_first"
+        tools:layout="@layout/fragment_login_first">
+        <deepLink
+            app:uri="app://vacancy.com/loginFirstFragment" />
+    </fragment>
+
+    <!-- LoginSecondFragment -->
+    <fragment
+        android:id="@+id/loginSecondFragment"
+        android:name="com.example.login.presentation.LoginSecondFragment"
+        android:label="fragment_login_second"
+        tools:layout="@layout/fragment_login_second">
+        <argument
+            android:name="email"
+            app:argType="string"
+             />
+        <!-- Deep link для перехода на LoginSecondFragment -->
+        <deepLink
+            app:uri="app://vacancy.com/loginSecondFragment?email={email}" />
+    </fragment>
+
     <!-- Fragment для списка вакансий -->
     <fragment
         android:id="@+id/listVacanciesFragment"
         android:name="com.example.listvacancy.presentation.ListVacanciesFragment"
         android:label="fragment_list_vacancies"
         tools:layout="@layout/fragment_list_vacancies">
+        <deepLink
+            app:uri="app://vacancy.com/listVacancies" />
 
     </fragment>
 

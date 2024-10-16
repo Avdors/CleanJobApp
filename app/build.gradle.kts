@@ -56,6 +56,7 @@ dependencies {
     implementation(project(":feature:listVacancy"))
     implementation(project(":feature:cardvacancy"))
     implementation(project(":feature:favoritevacancy"))
+    implementation(project(":feature:login"))
 
 
     //implementation(project(":data"))

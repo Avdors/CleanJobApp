@@ -33,6 +33,16 @@
                     android:host="vacancy.com"
                     android:pathPattern="/vacancy/.*" />
             </intent-filter>
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data
+                    android:scheme="app"
+                    android:host="vacancy.com"
+                    android:pathPattern="/login.*" />
+            </intent-filter>
         </activity>
     </application>
 

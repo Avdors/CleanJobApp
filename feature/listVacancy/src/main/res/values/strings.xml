@@ -40,6 +40,7 @@
 
     <string name="vacancy_for_you">"Вакансии для вас"</string>
     <string name="wrong_email_address">"Вы ввели неверный e-mail"</string>
+    <string name="wrong_kod">"Вы ввели неверные числа"</string>
 
     <string name="your_email">"*** ваш e-mail ***"</string>
     <string name="your_tasks">Ваши задачи</string>
